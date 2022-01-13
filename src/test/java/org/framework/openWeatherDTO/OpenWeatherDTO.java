@@ -1,10 +1,9 @@
 package org.framework.openWeatherDTO;
 
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
-public class OpenWeatherDTO {
+public class OpenWeatherDTO{
 
     @JsonProperty("rain")
     private Rain rain;
@@ -50,7 +49,6 @@ public class OpenWeatherDTO {
 
     @JsonProperty("wind")
     private Wind wind;
-
 
     public Rain getRain(){
         return rain;
