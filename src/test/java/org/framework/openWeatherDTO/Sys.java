@@ -22,7 +22,7 @@ public class Sys{
 	@JsonProperty("message")
 	private double message;
 
-	public String getCountry(){
+	public String getCountryCode(){
 		return country;
 	}
 
@@ -30,9 +30,17 @@ public class Sys{
 		return sunrise;
 	}
 
+	//	public int getSunriseDateTime(){
+//		return sunset;
+//	}
+
 	public int getSunset(){
 		return sunset;
 	}
+
+//	public int getSunsetDateTime(){
+//		return sunset;
+//	}
 
 	public int getId(){
 		return id;

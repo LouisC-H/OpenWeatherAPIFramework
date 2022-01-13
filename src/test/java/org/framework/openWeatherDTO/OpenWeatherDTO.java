@@ -33,7 +33,7 @@ public class OpenWeatherDTO{
 	private Snow snow;
 
 	@JsonProperty("weather")
-	private List<WeatherItem> weather;
+	private Weather weather;
 
 	@JsonProperty("name")
 	private String name;
@@ -74,7 +74,7 @@ public class OpenWeatherDTO{
 		return sys;
 	}
 
-	public int getDt(){
+	public int getTimeDataCreated(){
 		return dt;
 	}
 
@@ -86,7 +86,7 @@ public class OpenWeatherDTO{
 		return snow;
 	}
 
-	public List<WeatherItem> getWeather(){
+	public Weather getWeather(){
 		return weather;
 	}
 
@@ -98,7 +98,7 @@ public class OpenWeatherDTO{
 		return cod;
 	}
 
-	public int getId(){
+	public int getCityId(){
 		return id;
 	}
 

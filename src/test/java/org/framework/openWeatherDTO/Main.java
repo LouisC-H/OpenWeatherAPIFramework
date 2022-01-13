@@ -22,6 +22,12 @@ public class Main{
 	@JsonProperty("temp_max")
 	private double tempMax;
 
+	@JsonProperty("sea_level")
+	private double seaLevel;
+
+	@JsonProperty("grnd_level")
+	private double grndLevel;
+
 	public double getTemp(){
 		return temp;
 	}
@@ -44,5 +50,13 @@ public class Main{
 
 	public double getTempMax(){
 		return tempMax;
+	}
+
+	public double getSeaLevelPressure(){
+		return seaLevel;
+	}
+
+	public double getGrndLevelPressure(){
+		return grndLevel;
 	}
 }

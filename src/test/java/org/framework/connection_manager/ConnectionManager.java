@@ -1,5 +1,7 @@
 package org.framework.connection_manager;
 
+import org.config.Config;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -7,12 +9,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConnectionManager {
-    private static final String BASEURL = "api.openweathermap.org/data/2.5/weather?";
-    private static final String APIKEY = ""; // grab from config file
+    private static final String BASEURL = "https://api.openweathermap.org/data/2.5/weather?";
+    private static final String APIKEY = Config.getApiKey(); // grab from config file
     private static String endPoint;
-    private static String URL;
 
-        private static HttpResponse<String> getResponse(){
+    public static HttpResponse<String> getResponse(){
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + endPoint)).build();
         HttpResponse<String> httpResponse = null;
@@ -22,35 +23,6 @@ public class ConnectionManager {
             e.printStackTrace();
         }
         return httpResponse;
-    }
-
-    public ConnectionManager(CallLocationByEnum callMethod, String val1, String val2){
-        switch (callMethod) {
-            case CITYNAME:
-                generateEndpointCityName(val1,val2);
-                break;
-            case GEOCOORD:
-                generateEndpointGeoCoord(val1,val2);
-                break;
-            case ZIPCODE:
-                generateEndpointZIPCode(val1,val2);
-                break;
-            default:
-                System.err.println("CONNECTION MANAGER: INVALID CALL BY METHOD!");
-        }
-    }
-
-    public ConnectionManager(CallLocationByEnum callMethod, String val1){
-        switch (callMethod) {
-            case CITYNAME:
-                generateEndpointCityName(val1);
-                break;
-            case CITYID:
-                generateEndpointCityID(val1);
-                break;
-            default:
-                System.err.println("CONNECTION MANAGER: INVALID CALL BY METHOD!");
-        }
     }
 
     public static int getStatusCode() {
