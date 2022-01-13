@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 
 public class ConnectionManager {
     private static final String BASEURL = "api.openweathermap.org/data/2.5/weather?";
-    private static final String APIKEY = "b0bb8a0537d5f07aa55652d6314fa7e5";
+    private static final String APIKEY = ""; // grab from config file
     private static String endPoint;
     private static String URL;
 
@@ -23,6 +23,36 @@ public class ConnectionManager {
         }
         return httpResponse;
     }
+
+    public ConnectionManager(CallLocationByEnum callMethod, String val1, String val2){
+        switch (callMethod) {
+            case CITYNAME:
+                generateEndpointCityName(val1,val2);
+                break;
+            case GEOCOORD:
+                generateEndpointGeoCoord(val1,val2);
+                break;
+            case ZIPCODE:
+                generateEndpointZIPCode(val1,val2);
+                break;
+            default:
+                System.err.println("CONNECTION MANAGER: INVALID CALL BY METHOD!");
+        }
+    }
+
+    public ConnectionManager(CallLocationByEnum callMethod, String val1){
+        switch (callMethod) {
+            case CITYNAME:
+                generateEndpointCityName(val1);
+                break;
+            case CITYID:
+                generateEndpointCityID(val1);
+                break;
+            default:
+                System.err.println("CONNECTION MANAGER: INVALID CALL BY METHOD!");
+        }
+    }
+
     public static int getStatusCode() {
         return getResponse().statusCode();
     }
@@ -64,8 +94,8 @@ public class ConnectionManager {
         endPoint = "zip=" + zipCode + "," + countryCode + "&appid=" + APIKEY;
     }
 
-    /*public static void addModeParameter() {
-        endPoint = endPoint + "&mode=" +
-    }*/
+    public static void addModeParameter() {
+        endPoint = endPoint + "&mode=" + "";
+    }
 
 }
