@@ -1,2 +1,3 @@
 .idea
 .properties
+src/test/java/org/resources/config.properties
