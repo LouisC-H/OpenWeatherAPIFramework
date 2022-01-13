@@ -3,6 +3,7 @@ package org.framework.Tests;
 import org.framework.Injector;
 import org.framework.connection_manager.ConnectionManager;
 import org.framework.openWeatherDTO.OpenWeatherDTO;
+import org.framework.openWeatherDTO.OpenWeatherDTOValueExistChecker;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -23,12 +24,6 @@ public class FrameworkTests {
     @DisplayName("Status code is 200")
     void statusCodeIs200() {
         assertEquals(200, ConnectionManager.getStatusCode());
-    }
-
-    @Test
-    @DisplayName("Check Weather")
-    void checkWeather() {
-        System.out.println(openWeatherDTO.getWeather().get(0).getDescription());
     }
 
 

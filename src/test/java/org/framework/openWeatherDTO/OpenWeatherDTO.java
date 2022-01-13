@@ -2,6 +2,8 @@ package org.framework.openWeatherDTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 public class OpenWeatherDTO {
 
     @JsonProperty("rain")
@@ -32,7 +34,7 @@ public class OpenWeatherDTO {
     private Snow snow;
 
     @JsonProperty("weather")
-    private Weather weather;
+    private List<WeatherItem> weather;
 
     @JsonProperty("name")
     private String name;
@@ -87,7 +89,7 @@ public class OpenWeatherDTO {
         return snow;
     }
 
-    public Weather getWeather() {
+    public List<WeatherItem> getWeather() {
         return weather;
     }
 
@@ -117,9 +119,6 @@ public class OpenWeatherDTO {
         return String.valueOf(id).length() > 0;
     }
 
-    public boolean hasCodValueCorrect() {
-        return cod > 0;
-    }
 
     public boolean hasCityName() {
         return name != null;
@@ -129,57 +128,36 @@ public class OpenWeatherDTO {
         return String.valueOf(id).length() > 0;
     }
 
-    public boolean hasCityIdValueCorrect() {
-        return id > 0;
-    }
 
     public boolean hasTimezone() {
         return String.valueOf(timezone).length() > 0;
     }
 
-    public boolean hasTimezoneValueCorrect() {
-        return timezone > -43200 && timezone < 50400;
-    }
 
     public boolean hasSunset() {
         return String.valueOf(sys.getSunset()).length() > 0;
     }
 
-    public boolean hasSunsetValueCorrect() {
-        return sys.getSunset() <= dt + 86400;
-    }
 
     public boolean hasSunrise() {
         return String.valueOf(sys.getSunrise()).length() > 0;
     }
 
-    public boolean hasSunriseValueCorrect() {
-        return sys.getSunrise() >= dt - 86400;
-    }
 
     public boolean hasCountry() {
         return sys.getCountry() != null;
     }
 
-    public boolean hasCountryValueCorrect() {
-        return sys.getCountry().length() == 2;
-    }
 
     public boolean hasTime() {
         return String.valueOf(dt).length() > 0;
     }
 
-    public boolean hasTimeValueCorrect() {
-        return dt > 1642087321;
-    }
 
     public boolean hasClouds() {
         return String.valueOf(clouds).length() > 0;
     }
 
-    public boolean hasCloudsValueCorrect() {
-        return clouds.getAll() >= 0 && clouds.getAll() < 100;
-    }
 
     public boolean hasWindSpeedValue(){
         return String.valueOf(wind.getSpeed()).length()>0;
@@ -226,19 +204,19 @@ public class OpenWeatherDTO {
     }
 
     public boolean hasWeatherIcon(){
-        return String.valueOf(weather.getIcon()).length()>0;
+        return String.valueOf(weather.get(0).getIcon()).length()>0;
     }
 
     public boolean hasWeatherDescription(){
-        return String.valueOf(weather.getDescription()).length()>0;
+        return String.valueOf(weather.get(0).getDescription()).length()>0;
     }
 
     public boolean hasWeatherMain(){
-        return String.valueOf(weather.getMain()).length()>0;
+        return String.valueOf(weather.get(0).getMain()).length()>0;
     }
 
     public boolean hasWeatherId(){
-        return String.valueOf(weather.getId()).length()>0;
+        return String.valueOf(weather.get(0).getId()).length()>0;
     }
 
     public boolean hasCoordinates(){
