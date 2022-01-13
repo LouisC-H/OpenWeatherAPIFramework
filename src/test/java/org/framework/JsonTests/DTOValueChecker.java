@@ -3,7 +3,6 @@ package org.framework.JsonTests;
 import org.framework.openWeatherDTO.OpenWeatherDTO;
 import org.framework.openWeatherDTO.WeatherItem;
 
-import java.util.List;
 import java.util.Locale;
 
 public class DTOValueChecker {
@@ -14,7 +13,7 @@ public class DTOValueChecker {
         return longitude > -180 && longitude < 180 ;
     }
 
-    public static boolean checkCoordLatitudeValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkLatitudeValue(OpenWeatherDTO openWeatherDTO){
         double latitude = openWeatherDTO.getCoord().getLat();
 
         return latitude >= -90 && latitude < 90 ;
@@ -36,49 +35,49 @@ public class DTOValueChecker {
         return icon.length() == 3 ;
     }
 
-    public static boolean checkMainTemperatureValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkTemperatureValue(OpenWeatherDTO openWeatherDTO){
         double temperature = openWeatherDTO.getMain().getTemp();
 
         return temperature > -100 && temperature < 350;
     }
 
-    public static boolean checkMainFeelsLikeValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkFeelsLikeValue(OpenWeatherDTO openWeatherDTO){
         double feelsLikeTemp= openWeatherDTO.getMain().getFeelsLike();
 
         return feelsLikeTemp > -100 && feelsLikeTemp < 350 ;
     }
 
-    public static boolean checkMainPressureValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkPressureValue(OpenWeatherDTO openWeatherDTO){
         int pressure = openWeatherDTO.getMain().getPressure();
 
         return pressure > 870 &&  pressure < 1100;
     }
 
-    public static boolean checkMainHumidityValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkHumidityValue(OpenWeatherDTO openWeatherDTO){
         int humidity= openWeatherDTO.getMain().getHumidity();
 
         return humidity >= 0 && humidity <= 100 ;
     }
 
-    public static boolean checkMainMinTemperatureValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkMinTemperatureValue(OpenWeatherDTO openWeatherDTO){
         double tempMin = openWeatherDTO.getMain().getTempMin();
 
         return tempMin > -100 && tempMin < 350;
     }
 
-    public static boolean checkMainMaxTemperatureValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkMaxTemperatureValue(OpenWeatherDTO openWeatherDTO){
         double tempMax  = openWeatherDTO.getMain().getTempMax();
 
         return tempMax > -100 && tempMax < 350;
     }
 
-    public static boolean checkMainSeaLevelPressureValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkSeaLevelPressureValue(OpenWeatherDTO openWeatherDTO){
         double seaLevel= openWeatherDTO.getMain().getSeaLevelPressure();
 
         return seaLevel >= 870 && seaLevel <= 1100;
     }
 
-    public static boolean checkMainGroundLevelPressureValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkGroundLevelPressureValue(OpenWeatherDTO openWeatherDTO){
         double grndLevel= openWeatherDTO.getMain().getGrndLevelPressure();
 
         return grndLevel >= 870 && grndLevel <= 1100;
@@ -96,7 +95,7 @@ public class DTOValueChecker {
         return windDeg >= 0 && windDeg <= 360;
     }
 
-    public static boolean checkWindGustValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkGustValue(OpenWeatherDTO openWeatherDTO){
         double gust = openWeatherDTO.getWind().getGust();
         //highest recorded wind speed is 103 m/s or 231 miles/hour
         return gust >= 0 && gust < 300;
@@ -146,7 +145,7 @@ public class DTOValueChecker {
 
 //    sys.message
 
-    public static boolean checkSysCountryCodeValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkCountryCodeValue(OpenWeatherDTO openWeatherDTO){
         boolean testsResult = true;
         String countryCode = openWeatherDTO.getSys().getCountryCode();
         if (countryCode.length() != 2) {
@@ -159,21 +158,21 @@ public class DTOValueChecker {
         return testsResult;
     }
 
-    public static boolean checkSysSunriseDateTimeValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkSunriseDateTimeValue(OpenWeatherDTO openWeatherDTO){
         Integer sunriseTime = openWeatherDTO.getSys().getSunrise();
         Integer timeCalculated = openWeatherDTO.getTimeDataCreated();
         //within 24H
         return Math.abs(sunriseTime - timeCalculated) <= 86400;
     }
 
-    public static boolean checkSysSunsetDateTimeValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkSunsetDateTimeValue(OpenWeatherDTO openWeatherDTO){
         Integer sunsetTime = openWeatherDTO.getSys().getSunset();
         Integer timeCalculated = openWeatherDTO.getTimeDataCreated();
         //within 24H
         return Math.abs(sunsetTime - timeCalculated) <= 86400;
     }
 
-    public static boolean checkSysTimezoneValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean checkTimezoneValue(OpenWeatherDTO openWeatherDTO){
         int timezone = openWeatherDTO.getTimezone();
         //within 14H (the largest time zone)
         return Math.abs(timezone) <= 50400;

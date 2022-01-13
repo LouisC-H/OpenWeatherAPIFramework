@@ -1,8 +1,10 @@
 package org.framework.FrameworkTests;
 
 import org.framework.Injector;
+import org.framework.JsonTests.DTOValueChecker;
 import org.framework.connection_manager.ConnectionManager;
 import org.framework.openWeatherDTO.OpenWeatherDTO;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,6 @@ public class FrameworkTests {
     @Test
     @DisplayName("stuff")
     void stuff() {
-        System.out.println(openWeatherDTO.getWeather().get(0).getIcon());
+        Assertions.assertTrue(DTOValueChecker.checkTimezoneValue(openWeatherDTO));
     }
 }
