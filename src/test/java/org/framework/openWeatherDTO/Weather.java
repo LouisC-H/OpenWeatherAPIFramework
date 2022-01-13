@@ -2,7 +2,7 @@ package org.framework.openWeatherDTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class WeatherItem{
+public class Weather {
 
 	@JsonProperty("icon")
 	private String icon;
