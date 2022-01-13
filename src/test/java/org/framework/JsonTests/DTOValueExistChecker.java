@@ -1,6 +1,8 @@
-package org.framework.openWeatherDTO;
+package org.framework.JsonTests;
 
-public class OpenWeatherDTOValueExistChecker {
+import org.framework.openWeatherDTO.OpenWeatherDTO;
+
+public class DTOValueExistChecker {
 
     public static boolean hasCod(OpenWeatherDTO openWeatherDTO) {
         return String.valueOf(openWeatherDTO.getCityId()).length() > 0;
@@ -32,7 +34,7 @@ public class OpenWeatherDTOValueExistChecker {
     }
 
     public static boolean hasCountry(OpenWeatherDTO openWeatherDTO) {
-        return openWeatherDTO.getSys().getCountry() != null;
+        return openWeatherDTO.getSys().getCountryCode() != null;
     }
 
     public static boolean hasTime(OpenWeatherDTO openWeatherDTO) {
