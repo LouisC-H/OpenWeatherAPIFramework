@@ -7,14 +7,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConnectionManager {
-    private static final String BASEURL = "api.openweathermap.org/data/2.5/weather?";
+    private static final String BASEURL = "https://api.openweathermap.org/data/2.5/weather?q=london&appid=b0bb8a0537d5f07aa55652d6314fa7e5";
     private static final String APIKEY = ""; // grab from config file
     private static String endPoint;
     private static String URL;
 
         private static HttpResponse<String> getResponse(){
         HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + endPoint)).build();
+        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL)).build();
         HttpResponse<String> httpResponse = null;
         try {
             httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
@@ -22,6 +22,11 @@ public class ConnectionManager {
             e.printStackTrace();
         }
         return httpResponse;
+    }
+
+    public static String getConnection() {
+        getResponse();
+        return BASEURL;
     }
 
     public ConnectionManager(CallLocationByEnum callMethod, String val1, String val2){
