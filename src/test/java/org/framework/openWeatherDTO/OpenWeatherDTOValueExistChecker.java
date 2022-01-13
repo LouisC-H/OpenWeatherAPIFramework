@@ -11,7 +11,7 @@ public class OpenWeatherDTOValueExistChecker {
     }
 
     public static boolean hasCityName(OpenWeatherDTO openWeatherDTO) {
-        return openWeatherDTO.getCityName() != null;
+        return openWeatherDTO.getName() != null;
     }
 
     public static boolean hasCityId(OpenWeatherDTO openWeatherDTO) {
@@ -36,7 +36,7 @@ public class OpenWeatherDTOValueExistChecker {
     }
 
     public static boolean hasTime(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getTime()).length() > 0;
+        return String.valueOf(openWeatherDTO.getTimeDataCreated()).length() > 0;
     }
 
     public static boolean hasClouds(OpenWeatherDTO openWeatherDTO) {
@@ -109,10 +109,10 @@ public class OpenWeatherDTOValueExistChecker {
 
 
     public static boolean hasARain(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getRain().getJsonMember1h()).length() > 0 || String.valueOf(openWeatherDTO.getRain().getJsonMember3h()).length() > 0;
+        return String.valueOf(openWeatherDTO.getRain().getRain1h()).length() > 0 || String.valueOf(openWeatherDTO.getRain().getRain3h()).length() > 0;
     }
 
     public static boolean hasASnow(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getSnow().getJsonMember1h()).length() > 0 || String.valueOf(openWeatherDTO.getSnow().getJsonMember3h()).length() > 0;
+        return String.valueOf(openWeatherDTO.getSnow().getSnow1H()).length() > 0 || String.valueOf(openWeatherDTO.getSnow().getSnow3H()).length() > 0;
     }
 }
