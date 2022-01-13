@@ -1,7 +1,9 @@
-package org.framework.Tests;
+package org.framework.JsonTests;
 
 import org.framework.openWeatherDTO.OpenWeatherDTO;
+import org.framework.openWeatherDTO.WeatherItem;
 
+import java.util.List;
 import java.util.Locale;
 
 public class DTOValueChecker {
@@ -18,8 +20,8 @@ public class DTOValueChecker {
         return latitude >= -90 && latitude < 90 ;
     }
 
-    public static boolean checkWeatherIDValue(OpenWeatherDTO openWeatherDTO){
-        int ID= openWeatherDTO.getWeather().getId();
+    public static boolean checkWeatherIDValue(WeatherItem weatherItem){
+        int ID= weatherItem.getId();
 
         return ID >= 200 && ID <= 804 ;
     }
@@ -28,8 +30,8 @@ public class DTOValueChecker {
 
 //    weather.description - as there are different languages, I don't think we should check anything here
 
-    public static boolean checkWeatherIconValue(OpenWeatherDTO openWeatherDTO){
-        String icon= openWeatherDTO.getWeather().getIcon();
+    public static boolean checkWeatherIconValue(WeatherItem weatherItem){
+        String icon= weatherItem.getIcon();
         //consider making an enum and comparing icon to those values?
         return icon.length() == 3 ;
     }
@@ -132,10 +134,10 @@ public class DTOValueChecker {
 
     public static boolean checkTimeDataCreatedValue(OpenWeatherDTO openWeatherDTO){
         int timeDataCreated= openWeatherDTO.getTimeDataCreated();
-        int openWeatherFoundedYear = 1325379600;
         int timeNow = Math.toIntExact(System.currentTimeMillis() / 1000);
+        int time24HAgo = timeNow - 86400;
 
-        return timeDataCreated >= openWeatherFoundedYear && timeDataCreated <= timeNow;
+        return timeDataCreated >= time24HAgo && timeDataCreated <= timeNow;
     }
 
 //    sys.type
@@ -173,8 +175,8 @@ public class DTOValueChecker {
 
     public static boolean checkSysTimezoneValue(OpenWeatherDTO openWeatherDTO){
         int timezone = openWeatherDTO.getTimezone();
-        //within 12H
-        return Math.abs(timezone)<= 43200;
+        //within 14H (the largest time zone)
+        return Math.abs(timezone) <= 50400;
     }
 
     public static boolean checkCityIDValue(OpenWeatherDTO openWeatherDTO){
@@ -186,9 +188,9 @@ public class DTOValueChecker {
     //city name
 
     public static boolean checkCodValue(OpenWeatherDTO openWeatherDTO){
-        Integer cod = openWeatherDTO.getCod();
-        //must be a 3 digit code
-        return cod.toString().length() == 3;
+        int cod = openWeatherDTO.getCod();
+        //must be a 3-digit code
+        return Integer.toString(cod).length() == 3;
     }
 
     // error message

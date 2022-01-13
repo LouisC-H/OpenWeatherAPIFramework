@@ -33,7 +33,7 @@ public class OpenWeatherDTO{
 	private Snow snow;
 
 	@JsonProperty("weather")
-	private Weather weather;
+	private List<WeatherItem> weather;
 
 	@JsonProperty("name")
 	private String name;
@@ -86,7 +86,7 @@ public class OpenWeatherDTO{
 		return snow;
 	}
 
-	public Weather getWeather(){
+	public List<WeatherItem> getWeather(){
 		return weather;
 	}
 
