@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 
 public class ConnectionManager {
     private static final String BASEURL = "api.openweathermap.org/data/2.5/weather?";
-    private static final String APIKEY = ; // grab from config file
+    private static final String APIKEY = "b0bb8a0537d5f07aa55652d6314fa7e5";
     private static String endPoint;
     private static String URL;
 
@@ -64,8 +64,8 @@ public class ConnectionManager {
         endPoint = "zip=" + zipCode + "," + countryCode + "&appid=" + APIKEY;
     }
 
-    public static void addModeParameter() {
+    /*public static void addModeParameter() {
         endPoint = endPoint + "&mode=" +
-    }
+    }*/
 
 }
