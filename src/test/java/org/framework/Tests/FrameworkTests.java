@@ -8,7 +8,7 @@ public class FrameworkTests {
 
     @BeforeEach
     void setup() {
-        openWeatherDTO = injectDTO(getConnection());
+      //  openWeatherDTO = injectDTO(getConnection());
 
     }
 
