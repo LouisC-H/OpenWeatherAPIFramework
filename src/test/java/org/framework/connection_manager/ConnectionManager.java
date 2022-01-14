@@ -1,14 +1,12 @@
 package org.framework.connection_manager;
 import org.config.Config;
 import org.logging.OpenWeatherLogger;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ConnectionManager {
     private static final String BASEURL = Config.getBaseURL();
@@ -18,7 +16,6 @@ public class ConnectionManager {
     public static HttpResponse<String> getResponse(){
         if (!OpenWeatherLogger.doesLoggerExist()){
             OpenWeatherLogger.createLogger();
-            OpenWeatherLogger.writeLog(Level.INFO, "Logger created");
         }
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + endPoint)).build();
@@ -93,7 +90,7 @@ public class ConnectionManager {
         OpenWeatherLogger.writeLog(Level.INFO, "unit parameter added");
     }
     public static void addLangParameter(LanguageEnum lang) {
-            endPoint += "&lang=" + lang.getLanguageCode();
+        endPoint += "&lang=" + lang.getLanguageCode();
         OpenWeatherLogger.writeLog(Level.INFO, "language parameter added");
     }
 
