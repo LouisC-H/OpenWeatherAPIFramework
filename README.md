@@ -1,15 +1,15 @@
-#Open Weather API Framework
+# Open Weather API Framework
 
-###Project 4 of Sparta Global's java engineering course.
+### Project 4 of Sparta Global's java engineering course.
 
 Open Weather API Framework is a framework for testers to use when testing the Open Weather API.
 
 ## Table of contents
-* [How To Use](#How The Open Weather API Framework Works)
-  - [Requirements](#Config Property Requirements)
-  - [Connecting](#Connection Manager)
-  - [Data Transferring](#DTOs)
-* [Contributors](#Contributors)
+* [How To Use](# How The Open Weather API Framework Works)
+  - [Requirements](# Config Property Requirements)
+  - [Connecting](# Connection Manager)
+  - [Data Transferring](# DTOs)
+* [Contributors](# Contributors)
 
 
 ## How The Open Weather API Framework Works
@@ -62,7 +62,7 @@ Testers are able to get responses from the API (after endpoint construction) usi
   
     ConnectionManager.getResponse();
 
-###DTOs
+### DTOs
 
 ## Contributors
 Hanif Ali<br>
