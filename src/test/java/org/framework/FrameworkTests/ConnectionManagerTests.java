@@ -1,4 +1,4 @@
-package org.frameworkTests;
+package org.framework.FrameworkTests;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.config.Config;
@@ -24,7 +24,7 @@ public class ConnectionManagerTests {
     @DisplayName("Set Invalid City Name Test")
     void setInvalidCityNameTest(){
         ConnectionManager.generateEndpointCityName("Disneyland");
-        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
+        Assertions.assertEquals(404, ConnectionManager.getStatusCode());
         System.out.println(ConnectionManager.getURL());
     }
 
@@ -40,7 +40,7 @@ public class ConnectionManagerTests {
     @DisplayName("Set Invalid State Code Test")
     void setInvalidStateCodeTest(){
         ConnectionManager.generateEndpointCityName("London", "es");
-        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
+        Assertions.assertEquals(404, ConnectionManager.getStatusCode());
         System.out.println(ConnectionManager.getURL());
     }
 
@@ -72,7 +72,7 @@ public class ConnectionManagerTests {
     @DisplayName("Set Invalid City ID Test")
     void setInvalidCityIdTest(){
         ConnectionManager.generateEndpointCityID(4206969);
-        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
+        Assertions.assertEquals(404, ConnectionManager.getStatusCode());
         System.out.println(ConnectionManager.getURL());
     }
 
@@ -92,7 +92,7 @@ public class ConnectionManagerTests {
         double lon = 9001;
         double lat = 182;
         ConnectionManager.generateEndpointGeoCoord(lat,lon);
-        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
+        Assertions.assertEquals(400, ConnectionManager.getStatusCode());
         System.out.println(ConnectionManager.getURL());
     }
 
@@ -108,7 +108,7 @@ public class ConnectionManagerTests {
     @DisplayName("Set Invalid Zip Code Test")
     void setInvalidZipCodeTest(){
         ConnectionManager.generateEndpointZIPCode(64209,"us");
-        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
+        Assertions.assertEquals(404, ConnectionManager.getStatusCode());
         System.out.println(ConnectionManager.getURL());
     }
 
