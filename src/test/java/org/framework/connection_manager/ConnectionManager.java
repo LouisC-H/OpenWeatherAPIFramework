@@ -1,5 +1,6 @@
 package org.framework.connection_manager;
 import org.config.Config;
+import org.logging.OpenWeatherLogger;
 
 import java.io.IOException;
 import java.net.URI;
@@ -13,6 +14,9 @@ public class ConnectionManager {
     private static String endPoint;
 
     public static HttpResponse<String> getResponse(){
+        if (!OpenWeatherLogger.doesLoggerExist()){
+            OpenWeatherLogger.createLogger();
+        }
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + endPoint)).build();
         HttpResponse<String> httpResponse = null;
