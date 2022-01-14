@@ -9,6 +9,7 @@ Open Weather API Framework is a framework for testers to use when testing the Op
 *  - [Requirements](#Config-Property-Requirements)
 *  - [Connecting](#Connection-Manager)
 *  - [Data Transferring](#DTOs)
+*  - [Logging](#Logging)
 * [Contributors](#Contributors)
 
 
@@ -63,6 +64,8 @@ Testers are able to get responses from the API (after endpoint construction) usi
     ConnectionManager.getResponse();
 
 ### DTOs
+
+### Logging
 
 ## Contributors
 Hanif Ali<br>
