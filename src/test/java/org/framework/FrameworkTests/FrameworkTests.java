@@ -14,7 +14,7 @@ public class FrameworkTests {
 
     @BeforeAll
     static void prepare(){
-        ConnectionManager.generateEndpointCityName("London");
+        ConnectionManager.setEndpointAsCityName("London");
         openWeatherDTO = Injector.injectDTO(ConnectionManager.getURL());
     }
 
