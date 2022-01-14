@@ -1,5 +1,4 @@
 package org.framework.connection_manager;
-
 import org.config.Config;
 
 import java.io.IOException;
@@ -17,6 +16,7 @@ public class ConnectionManager {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + endPoint)).build();
         HttpResponse<String> httpResponse = null;
+
         try {
             httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
@@ -53,21 +53,28 @@ public class ConnectionManager {
         endPoint = "q=" + cityName + "," + stateCode + "," + countryCode + "&appid=" + APIKEY;
     }
 
-    public static void generateEndpointCityID(String cityID) {
+    public static void generateEndpointCityID(int cityID) {
         endPoint = "id=" + cityID + "&appid=" + APIKEY;
 
     }
 
-    public static void generateEndpointGeoCoord(String latitude, String longitude) {
+    public static void generateEndpointGeoCoord(double latitude, double longitude) {
         endPoint = "lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKEY;
     }
 
-    public static void generateEndpointZIPCode(String zipCode, String countryCode) {
+    public static void generateEndpointZIPCode(int zipCode, String countryCode) {
         endPoint = "zip=" + zipCode + "," + countryCode + "&appid=" + APIKEY;
     }
 
-    public static void addModeParameter() {
-        endPoint = endPoint + "&mode=" + "";
+    public static void addModeParameter(ModeEnum mode) {
+        endPoint += "&mode=" + mode.getModeAsString();
+    }
+
+    public static void addUnitsParameter(UnitsEnum unit) {
+        endPoint += "&units=" + unit.getUnitCode();
+    }
+    public static void addLangParameter(LanguageEnum lang) {
+            endPoint += "&lang=" + lang.getLanguageCode();
     }
 
 }
