@@ -12,7 +12,6 @@ public class Config {
     private static final Properties config;
     static {
         config = new Properties();
-
         try {
             config.load(new BufferedReader(new FileReader("src/test/java/org/resources/config.properties")));
             OpenWeatherLogger.writeLog(Level.CONFIG, "config file loaded");
