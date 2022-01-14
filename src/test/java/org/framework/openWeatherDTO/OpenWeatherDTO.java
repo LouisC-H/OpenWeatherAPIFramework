@@ -74,7 +74,7 @@ public class OpenWeatherDTO{
 		return sys;
 	}
 
-	public int getDt(){
+	public int getTimeDataCreated(){
 		return dt;
 	}
 
@@ -98,7 +98,7 @@ public class OpenWeatherDTO{
 		return cod;
 	}
 
-	public int getId(){
+	public int getCityId(){
 		return id;
 	}
 

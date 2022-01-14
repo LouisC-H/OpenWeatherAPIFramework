@@ -1,6 +1,4 @@
 package org.framework.connection_manager;
-
-
 import org.config.Config;
 
 import java.io.IOException;
@@ -10,12 +8,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConnectionManager {
-    private static final String BASEURL = "Https://api.openweathermap.org/data/2.5/weather?";
-    private static final String APIKEY = Config.getApiKey();// grab from config file
+    private static final String BASEURL = Config.getBaseURL();
+    private static final String APIKEY = Config.getApiKey();
     private static String endPoint;
-    private static String URL;
 
-        private static HttpResponse<String> getResponse(){
+    public static HttpResponse<String> getResponse(){
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + endPoint)).build();
         HttpResponse<String> httpResponse = null;
