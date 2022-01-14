@@ -5,11 +5,11 @@
 Open Weather API Framework is a framework for testers to use when testing the Open Weather API.
 
 ## Table of contents
-* [How To Use](# How The Open Weather API Framework Works)
-  - [Requirements](# Config Property Requirements)
-  - [Connecting](# Connection Manager)
-  - [Data Transferring](# DTOs)
-* [Contributors](# Contributors)
+* [How To Use](#How-The-Open-Weather-API-Framework-Works)
+*  - [Requirements](#Config-Property-Requirements)
+*  - [Connecting](#Connection-Manager)
+*  - [Data Transferring](#DTOs)
+* [Contributors](#Contributors)
 
 
 ## How The Open Weather API Framework Works
@@ -18,7 +18,7 @@ Open Weather API Framework is a framework for testers to use when testing the Op
 
 In order to use the framework, a config file must first be made with 2 properties: "baseURL" and "apiKey" <br>
 These properties are retrievable programmatically via the Config class and are used in construction of the full url of the API.
-####Properties:
+#### Properties:
 - baseURL=Https://api.openweathermap.org/data/2.5/weather?
 - apiKey=[Your API Key]
 
