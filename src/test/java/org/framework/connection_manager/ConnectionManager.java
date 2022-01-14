@@ -9,8 +9,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConnectionManager {
-    private static final String BASEURL = "https://api.openweathermap.org/data/2.5/weather?";
-    private static final String APIKEY = Config.getApiKey(); // grab from config file
+    private static final String BASEURL = Config.getBaseURL();
+    private static final String APIKEY = Config.getApiKey();
     private static String endPoint;
 
     public static HttpResponse<String> getResponse(){
