@@ -24,7 +24,6 @@ public class OpenWeatherLogger {
         Handler consoleHandler = new ConsoleHandler();
         consoleHandler.setLevel(ConsolePrintoutLevel);
         logger.addHandler(consoleHandler);
-        System.out.println("initialised logger");
     }
     public static void writeLog(Level level, String message){
         if (loggerExists){

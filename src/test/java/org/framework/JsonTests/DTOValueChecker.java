@@ -143,7 +143,7 @@ public class DTOValueChecker {
     }
 
     public static boolean checkWindSpeedValue(OpenWeatherDTO openWeatherDTO){
-        if(DTOValueExistChecker.hasWindSpeedValue(openWeatherDTO)) {
+        if(DTOValueExistChecker.hasWindSpeed(openWeatherDTO)) {
             double windSpeed = openWeatherDTO.getWind().getSpeed();
             //highest recorded wind speed is 103 m/s or 231 miles/hour
             return windSpeed >= 0 && windSpeed <= 300;
@@ -153,7 +153,7 @@ public class DTOValueChecker {
     }
 
     public static boolean checkWindDirectionValue(OpenWeatherDTO openWeatherDTO){
-        if(DTOValueExistChecker.hasWindDirectionValue(openWeatherDTO)) {
+        if(DTOValueExistChecker.hasWindDirection(openWeatherDTO)) {
             double windDeg = openWeatherDTO.getWind().getDeg();
 
             return windDeg >= 0 && windDeg <= 360;
@@ -163,7 +163,7 @@ public class DTOValueChecker {
     }
 
     public static boolean checkGustValue(OpenWeatherDTO openWeatherDTO){
-        if(DTOValueExistChecker.hasWindGustValue(openWeatherDTO)) {
+        if(DTOValueExistChecker.hasWindGust(openWeatherDTO)) {
             double gust = openWeatherDTO.getWind().getGust();
             //highest recorded wind speed is 103 m/s or 231 miles/hour
             return gust >= 0 && gust < 300;
@@ -184,9 +184,8 @@ public class DTOValueChecker {
     }
 
     public static boolean checkRain1HValue(OpenWeatherDTO openWeatherDTO){
-        if(DTOValueExistChecker.hasRain1H(openWeatherDTO)) {
+        if(DTOValueExistChecker.hasRain(openWeatherDTO)) {
             double rain1H= openWeatherDTO.getRain().getRain1h();
-
             return rain1H >= 0;
         } else {
             return false;
@@ -195,7 +194,7 @@ public class DTOValueChecker {
     }
 
     public static boolean checkRain3HValue(OpenWeatherDTO openWeatherDTO){
-        if(DTOValueExistChecker.hasRain3H(openWeatherDTO)) {
+        if(DTOValueExistChecker.hasRain(openWeatherDTO)) {
             double rain3H= openWeatherDTO.getRain().getRain3h();
 
             return rain3H >= 0;
@@ -205,7 +204,7 @@ public class DTOValueChecker {
     }
 
     public static boolean checkSnow1HValue(OpenWeatherDTO openWeatherDTO){
-        if(DTOValueExistChecker.hasSnow1H(openWeatherDTO)) {
+        if(DTOValueExistChecker.hasSnow(openWeatherDTO)) {
             double snow1H= openWeatherDTO.getSnow().getSnow1H();
 
             return snow1H >= 0;
@@ -215,7 +214,7 @@ public class DTOValueChecker {
     }
 
     public static boolean checkSnow3HValue(OpenWeatherDTO openWeatherDTO){
-        if(DTOValueExistChecker.hasSnow3H(openWeatherDTO)) {
+        if(DTOValueExistChecker.hasSnow(openWeatherDTO)) {
             double snow3H= openWeatherDTO.getSnow().getSnow3H();
 
             return snow3H >= 0;
