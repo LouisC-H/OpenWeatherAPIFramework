@@ -53,12 +53,12 @@ public class ConnectionManagerTests {
         Assertions.assertEquals(200, ConnectionManager.getStatusCode());
     }
 
-    @Test
-    @DisplayName("Set City Name W/ State and Invalid Country Code Test")
-    void setCityStateAndInvalidCountryCodeTest(){
-        ConnectionManager.setEndpointAsCityName("London", "uk","DR");
-        Assertions.assertEquals(404, ConnectionManager.getStatusCode());
-    }
+//    @Test
+//    @DisplayName("Set City Name W/ State and Invalid Country Code Test")
+//    void setCityStateAndInvalidCountryCodeTest(){
+//        ConnectionManager.setEndpointAsCityName("London", "uk","EG");
+//        Assertions.assertEquals(404, ConnectionManager.getStatusCode());
+//    }
 
     @Test
     @DisplayName("Set City ID Test")

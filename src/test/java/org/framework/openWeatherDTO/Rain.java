@@ -10,11 +10,11 @@ public class Rain{
 	@JsonProperty("3h")
 	private double Rain3h;
 
-	public double getRain1h(){
+	public double getRain1H(){
 		return Rain1h;
 	}
 
-	public double getRain3h(){
+	public double getRain3H(){
 		return Rain3h;
 	}
 }
