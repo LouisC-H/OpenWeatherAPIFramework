@@ -2,6 +2,9 @@ package org.framework.openWeatherDTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
 public class Sys{
 
 	@JsonProperty("country")
@@ -30,17 +33,17 @@ public class Sys{
 		return sunrise;
 	}
 
-	//	public int getSunriseDateTime(){
-//		return sunset;
-//	}
+	public LocalDateTime getSunriseDateTime(OpenWeatherDTO openWeatherDTO){
+		return LocalDateTime.ofEpochSecond(sunrise,0, ZoneOffset.ofTotalSeconds(openWeatherDTO.getTimezone()));
+	}
 
 	public int getSunset(){
 		return sunset;
 	}
 
-//	public int getSunsetDateTime(){
-//		return sunset;
-//	}
+	public LocalDateTime getSunsetDateTime(OpenWeatherDTO openWeatherDTO){
+		return LocalDateTime.ofEpochSecond(sunset,0, ZoneOffset.ofTotalSeconds(openWeatherDTO.getTimezone()));
+	}
 
 	public int getId(){
 		return id;

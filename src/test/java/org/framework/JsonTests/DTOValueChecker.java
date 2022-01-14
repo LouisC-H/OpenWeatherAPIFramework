@@ -8,6 +8,7 @@ import java.util.Locale;
 public class DTOValueChecker {
 
     public static boolean checkLongitudeValue(OpenWeatherDTO openWeatherDTO){
+
         double longitude = openWeatherDTO.getCoord().getLon();
 
         return longitude > -180 && longitude < 180 ;

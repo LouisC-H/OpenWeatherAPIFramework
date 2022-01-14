@@ -1,7 +1,10 @@
 package org.framework.openWeatherDTO;
 
 import java.util.List;
+import java.util.logging.Level;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.logging.OpenWeatherLogger;
 
 public class OpenWeatherDTO{
 
@@ -51,6 +54,7 @@ public class OpenWeatherDTO{
 	private Wind wind;
 
 	public Rain getRain(){
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Rain DTO");
 		return rain;
 	}
 
@@ -63,14 +67,17 @@ public class OpenWeatherDTO{
 	}
 
 	public Main getMain(){
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Main DTO");
 		return main;
 	}
 
 	public Clouds getClouds(){
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Cloud DTO");
 		return clouds;
 	}
 
 	public Sys getSys(){
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Sys DTO");
 		return sys;
 	}
 
@@ -79,15 +86,25 @@ public class OpenWeatherDTO{
 	}
 
 	public Coord getCoord(){
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Coord DTO");
 		return coord;
 	}
 
 	public Snow getSnow(){
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Snow DTO");
 		return snow;
 	}
 
-	public List<WeatherItem> getWeather(){
+	public List<WeatherItem> getWeatherList(){
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching Weather DTO list");
 		return weather;
+	}
+
+	public int getNumWeathers() {return  weather.size();}
+
+	public WeatherItem getWeather(int index) {
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Weather DTO #" + index);
+		return  weather.get(index);
 	}
 
 	public String getName(){
@@ -107,6 +124,7 @@ public class OpenWeatherDTO{
 	}
 
 	public Wind getWind(){
+		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Wind DTO");
 		return wind;
 	}
 }
