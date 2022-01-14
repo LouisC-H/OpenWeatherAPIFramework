@@ -42,15 +42,15 @@ public class DTOValueExistChecker {
         return String.valueOf(openWeatherDTO.getClouds()).length() > 0;
     }
 
-    public static boolean hasWindSpeedValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean hasWindSpeed(OpenWeatherDTO openWeatherDTO){
         return String.valueOf(openWeatherDTO.getWind().getSpeed()).length()>0;
     }
 
-    public static boolean hasWindGustValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean hasWindGust(OpenWeatherDTO openWeatherDTO){
         return String.valueOf(openWeatherDTO.getWind().getGust()).length()>0;
     }
 
-    public static boolean hasWindDirectionValue(OpenWeatherDTO openWeatherDTO){
+    public static boolean hasWindDirection(OpenWeatherDTO openWeatherDTO){
         return String.valueOf(openWeatherDTO.getWind().getDeg()).length()>0;
     }
 
@@ -114,19 +114,13 @@ public class DTOValueExistChecker {
         return String.valueOf(openWeatherDTO.getCoord().getLat()).length()>0 && String.valueOf(openWeatherDTO.getCoord().getLon()).length()>0;
     }
 
-    public static boolean hasRain1H(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getRain().getRain1h()).length() > 0;
+    public static boolean hasRain(OpenWeatherDTO openWeatherDTO) {
+        return openWeatherDTO.getRain()!=null;
     }
 
-    public static boolean hasRain3H(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getRain().getRain3h()).length() > 0;
+
+    public static boolean hasSnow(OpenWeatherDTO openWeatherDTO) {
+        return openWeatherDTO.getSnow()!=null;
     }
 
-    public static boolean hasSnow1H(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getSnow().getSnow1H()).length() > 0;
-    }
-
-    public static boolean hasSnow3H(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getSnow().getSnow3H()).length() > 0;
-    }
 }
