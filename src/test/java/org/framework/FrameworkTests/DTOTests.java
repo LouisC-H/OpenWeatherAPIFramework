@@ -36,6 +36,6 @@ public class DTOTests {
     @Test
     @DisplayName("Does getCalculatedDateTime return the same time as getCalculatedTimeEpoch?")
     void doesGetCalculatedDateTimeReturnTheSameTimeAsGetCalculatedTimeEpoch() {
-        Assertions.assertEquals(openWeatherDTO.getTime(), openWeatherDTO.getCalculatedDateTime().toEpochSecond(openWeatherDTO.getTimezoneZoneOffset()));
+        Assertions.assertEquals(openWeatherDTO.getTime(), openWeatherDTO.getTimeLocalDateTime().toEpochSecond(openWeatherDTO.getTimezoneZoneOffset()));
     }
 }

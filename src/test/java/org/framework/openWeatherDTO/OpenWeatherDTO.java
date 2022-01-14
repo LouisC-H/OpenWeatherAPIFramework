@@ -92,7 +92,7 @@ public class OpenWeatherDTO{
 		return dt;
 	}
 
-	public LocalDateTime getCalculatedDateTime(){
+	public LocalDateTime getTimeLocalDateTime(){
 		return LocalDateTime.ofEpochSecond(dt,0, getTimezoneZoneOffset());
 	}
 
