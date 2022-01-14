@@ -12,6 +12,7 @@ public class Snow{
 	public double getSnow1H(){
 		return Snow1h;
 	}
+
 	public double getSnow3H(){
 		return Snow3h;
 	}

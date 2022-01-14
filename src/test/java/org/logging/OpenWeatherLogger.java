@@ -2,16 +2,15 @@ package org.logging;
 
 
 import java.io.IOException;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 public class OpenWeatherLogger {
     private static final String fileLocation = "src/test/java/org/resources/log_file.log";
+    private static boolean loggerExists = false;
+    private static final Logger logger = Logger.getLogger("myLogger");
 
-    public static void createLogger(){
-        Logger logger = Logger.getLogger("myLogger");
+    public static void createLogger(Level ConsolePrintoutLevel){
+        loggerExists = true;
         logger.setUseParentHandlers(false);
         try {
             Handler fileHandler = new FileHandler(fileLocation, true);
@@ -22,11 +21,19 @@ public class OpenWeatherLogger {
                 IOException e) {
             e.printStackTrace();
         }
+        Handler consoleHandler = new ConsoleHandler();
+        consoleHandler.setLevel(ConsolePrintoutLevel);
+        logger.addHandler(consoleHandler);
+        System.out.println("initialised logger");
     }
     public static void writeLog(Level level, String message){
-        Logger logger = Logger.getLogger("myLogger");
-
+        if (loggerExists){
         logger.setLevel(level);
         logger.log(level, message);
+        }
+    }
+
+    public static boolean doesLoggerExist() {
+        return loggerExists;
     }
 }

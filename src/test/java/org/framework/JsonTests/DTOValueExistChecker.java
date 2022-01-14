@@ -1,15 +1,12 @@
 package org.framework.JsonTests;
 
 import org.framework.openWeatherDTO.OpenWeatherDTO;
+import org.framework.openWeatherDTO.WeatherItem;
 
 public class DTOValueExistChecker {
 
     public static boolean hasCod(OpenWeatherDTO openWeatherDTO) {
         return String.valueOf(openWeatherDTO.getCityId()).length() > 0;
-    }
-
-    public static boolean hasCodValueCorrect(OpenWeatherDTO openWeatherDTO) {
-        return openWeatherDTO.getCod() > 0;
     }
 
     public static boolean hasCityName(OpenWeatherDTO openWeatherDTO) {
@@ -38,7 +35,7 @@ public class DTOValueExistChecker {
     }
 
     public static boolean hasTime(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getTimeDataCreated()).length() > 0;
+        return String.valueOf(openWeatherDTO.getCalculatedTimeEpoch()).length() > 0;
     }
 
     public static boolean hasClouds(OpenWeatherDTO openWeatherDTO) {
@@ -89,20 +86,21 @@ public class DTOValueExistChecker {
         return openWeatherDTO.getBase()!=null;
     }
 
-    public static boolean hasWeatherIcon(OpenWeatherDTO openWeatherDTO){
-        return String.valueOf(openWeatherDTO.getWeather().get(0).getIcon()).length()>0;
+    public static boolean hasWeatherIcon(WeatherItem weatherItem){
+        return String.valueOf(weatherItem.getIcon()).length()>0;
     }
 
-    public static boolean hasWeatherDescription(OpenWeatherDTO openWeatherDTO){
-        return String.valueOf(openWeatherDTO.getWeather().get(0).getDescription()).length()>0;
+    public static boolean hasWeatherDescription(WeatherItem weatherItem){
+        return String.valueOf(weatherItem.getDescription()).length()>0;
     }
 
-    public static boolean hasWeatherMain(OpenWeatherDTO openWeatherDTO){
-        return String.valueOf(openWeatherDTO.getWeather().get(0).getMain()).length()>0;
+    public static boolean hasWeatherMain(WeatherItem weatherItem){
+        return String.valueOf(weatherItem.getMain()).length()>0;
     }
 
-    public static boolean hasWeatherId(OpenWeatherDTO openWeatherDTO){
-        return String.valueOf(openWeatherDTO.getWeather().get(0).getId()).length()>0;
+    public static boolean hasWeatherId(WeatherItem weatherItem){
+        return String.valueOf(weatherItem.getId()).length()>0;
+
     }
 
     public static boolean hasCoordinates(OpenWeatherDTO openWeatherDTO){

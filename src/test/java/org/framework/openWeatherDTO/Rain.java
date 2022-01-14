@@ -13,6 +13,7 @@ public class Rain{
 	public double getRain1h(){
 		return Rain1h;
 	}
+
 	public double getRain3h(){
 		return Rain3h;
 	}
