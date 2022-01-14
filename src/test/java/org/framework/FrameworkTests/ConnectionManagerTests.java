@@ -29,9 +29,6 @@ public class ConnectionManagerTests {
     @DisplayName("Set Invalid City Name Test")
     void setInvalidCityNameTest(){
         ConnectionManager.setEndpointAsCityName("Disneyland");
-        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
-        System.out.println(ConnectionManager.getURL());
-        ConnectionManager.setEndpointAsCityName("Disneyland");
         Assertions.assertEquals(404, ConnectionManager.getStatusCode());
     }
 
@@ -45,9 +42,6 @@ public class ConnectionManagerTests {
     @Test
     @DisplayName("Set Invalid State Code Test")
     void setInvalidStateCodeTest(){
-        ConnectionManager.setEndpointAsCityName("London", "es");
-        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
-        System.out.println(ConnectionManager.getURL());
         ConnectionManager.setEndpointAsCityName("London", "es");
         Assertions.assertEquals(404, ConnectionManager.getStatusCode());
     }
@@ -76,7 +70,6 @@ public class ConnectionManagerTests {
     @Test
     @DisplayName("Set Invalid City ID Test")
     void setInvalidCityIdTest(){
-        ConnectionManager.setEndpointAsCityID(4206969);
         ConnectionManager.setEndpointAsCityID(4206969);
         Assertions.assertEquals(404, ConnectionManager.getStatusCode());
     }
