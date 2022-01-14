@@ -6,10 +6,10 @@ Open Weather API Framework is a framework for testers to use when testing the Op
 
 ## Table of contents
 * [How To Use](#How-The-Open-Weather-API-Framework-Works)
-  - [Requirements] (# Config Property Requirements)
-  - [Connecting] (# Connection Manager)
-  - [Data Transferring] (# DTOs)
-* [Contributors] (# Contributors)
+*  - [Requirements](#Config-Property-Requirements)
+  - [Connecting](#Connection-Manager)
+  - [Data Transferring](#DTOs)
+* [Contributors](#Contributors)
 
 
 ## How The Open Weather API Framework Works
