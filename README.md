@@ -69,6 +69,9 @@ Our DTOs are based on a POJO object structure. One main class (OpenWeatherDTO) c
 
 ### Logging
 
+The method below must be called at the start of your file in in the @BeforeAll to initialise and activate OpenWeatherAPIFramework's logger. Note that the method's parameter determines the logging level that will be outputted to the command line (all logs will also be saved to the file resources/log_file.log)
+
+         OpenWeatherLogger.createLogger(Level ConsolePrintoutLevel);
 
 #### Getting Header Info
 Testers are able to get each value from the header using the following methods
