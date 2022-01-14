@@ -38,7 +38,7 @@ public class DTOValueExistChecker {
     }
 
     public static boolean hasTime(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getTimeDataCreated()).length() > 0;
+        return String.valueOf(openWeatherDTO.getCalculatedTimeEpoch()).length() > 0;
     }
 
     public static boolean hasClouds(OpenWeatherDTO openWeatherDTO) {
@@ -89,20 +89,20 @@ public class DTOValueExistChecker {
         return openWeatherDTO.getBase()!=null;
     }
 
-    public static boolean hasWeatherIcon(OpenWeatherDTO openWeatherDTO){
-        return String.valueOf(openWeatherDTO.getWeather().get(0).getIcon()).length()>0;
+    public static boolean hasWeatherIcon(OpenWeatherDTO openWeatherDTO, int index){
+        return String.valueOf(openWeatherDTO.getWeather(index).getIcon()).length()>0;
     }
 
-    public static boolean hasWeatherDescription(OpenWeatherDTO openWeatherDTO){
-        return String.valueOf(openWeatherDTO.getWeather().get(0).getDescription()).length()>0;
+    public static boolean hasWeatherDescription(OpenWeatherDTO openWeatherDTO, int index){
+        return String.valueOf(openWeatherDTO.getWeather(index).getDescription()).length()>0;
     }
 
-    public static boolean hasWeatherMain(OpenWeatherDTO openWeatherDTO){
-        return String.valueOf(openWeatherDTO.getWeather().get(0).getMain()).length()>0;
+    public static boolean hasWeatherMain(OpenWeatherDTO openWeatherDTO, int index){
+        return String.valueOf(openWeatherDTO.getWeather(index).getMain()).length()>0;
     }
 
-    public static boolean hasWeatherId(OpenWeatherDTO openWeatherDTO){
-        return String.valueOf(openWeatherDTO.getWeather().get(0).getId()).length()>0;
+    public static boolean hasWeatherId(OpenWeatherDTO openWeatherDTO, int index){
+        return String.valueOf(openWeatherDTO.getWeather(index).getId()).length()>0;
     }
 
     public static boolean hasCoordinates(OpenWeatherDTO openWeatherDTO){
