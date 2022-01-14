@@ -1,25 +1,17 @@
-package org.frameworkTests;
+package org.framework.FrameworkTests;
 
 import org.framework.Injector;
 import org.framework.connection_manager.ConnectionManager;
 import org.framework.connection_manager.Header;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import java.text.DateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.Date;
 
 public class HeadersTests {
 
     @BeforeAll
     static void setup(){
-        ConnectionManager.generateEndpointCityName("London");
+        ConnectionManager.setEndpointAsCityName("London");
         Injector.injectDTO(ConnectionManager.getURL());
         System.out.println(Header.getFullHeader());
     }

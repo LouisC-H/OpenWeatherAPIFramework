@@ -1,6 +1,5 @@
 package org.framework.FrameworkTests;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.config.Config;
 import org.framework.connection_manager.ConnectionManager;
 import org.framework.connection_manager.LanguageEnum;
@@ -8,7 +7,6 @@ import org.framework.connection_manager.ModeEnum;
 import org.framework.connection_manager.UnitsEnum;
 import org.junit.jupiter.api.*;
 import org.logging.OpenWeatherLogger;
-
 import java.util.logging.Level;
 
 public class ConnectionManagerTests {
