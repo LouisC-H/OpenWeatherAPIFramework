@@ -4,5 +4,5 @@ public enum CallLocationByEnum {
     CITYNAME,
     CITYID,
     GEOCOORD,
-    ZIPCODE,
+    ZIPCODE
 }
