@@ -118,7 +118,25 @@ public class DTOValueExistChecker {
         return openWeatherDTO.getRain()!=null;
     }
 
+    public static boolean hasRain1H(OpenWeatherDTO openWeatherDTO) {
+        return String.valueOf(openWeatherDTO.getRain().getRain1H()).length() > 0;
 
+    }
+
+    public static boolean hasRain3H(OpenWeatherDTO openWeatherDTO) {
+        return String.valueOf(openWeatherDTO.getRain().getRain3H()).length() > 0;
+
+    }
+
+    public static boolean hasSnow1H(OpenWeatherDTO openWeatherDTO) {
+        return String.valueOf(openWeatherDTO.getSnow().getSnow1H()).length() > 0;
+
+    }
+
+    public static boolean hasSnow3H(OpenWeatherDTO openWeatherDTO) {
+        return String.valueOf(openWeatherDTO.getSnow().getSnow3H()).length() > 0;
+
+    }
     public static boolean hasSnow(OpenWeatherDTO openWeatherDTO) {
         return openWeatherDTO.getSnow()!=null;
     }
