@@ -133,7 +133,7 @@ public class DTOValueChecker {
     }
 
     public static boolean checkTimeDataCreatedValue(OpenWeatherDTO openWeatherDTO){
-        int timeDataCreated= openWeatherDTO.getTimeDataCreated();
+        int timeDataCreated= openWeatherDTO.getCalculatedTimeEpoch();
         int timeNow = Math.toIntExact(System.currentTimeMillis() / 1000);
         int time24HAgo = timeNow - 86400;
 
@@ -161,14 +161,14 @@ public class DTOValueChecker {
 
     public static boolean checkSunriseDateTimeValue(OpenWeatherDTO openWeatherDTO){
         Integer sunriseTime = openWeatherDTO.getSys().getSunrise();
-        Integer timeCalculated = openWeatherDTO.getTimeDataCreated();
+        Integer timeCalculated = openWeatherDTO.getCalculatedTimeEpoch();
         //within 24H
         return Math.abs(sunriseTime - timeCalculated) <= 86400;
     }
 
     public static boolean checkSunsetDateTimeValue(OpenWeatherDTO openWeatherDTO){
         Integer sunsetTime = openWeatherDTO.getSys().getSunset();
-        Integer timeCalculated = openWeatherDTO.getTimeDataCreated();
+        Integer timeCalculated = openWeatherDTO.getCalculatedTimeEpoch();
         //within 24H
         return Math.abs(sunsetTime - timeCalculated) <= 86400;
     }

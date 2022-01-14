@@ -34,7 +34,7 @@ public class Sys{
 	}
 
 	public LocalDateTime getSunriseDateTime(OpenWeatherDTO openWeatherDTO){
-		return LocalDateTime.ofEpochSecond(sunrise,0, ZoneOffset.ofTotalSeconds(openWeatherDTO.getTimezone()));
+		return LocalDateTime.ofEpochSecond(sunrise,0, openWeatherDTO.getTimezoneZoneOffset());
 	}
 
 	public int getSunset(){
@@ -42,7 +42,7 @@ public class Sys{
 	}
 
 	public LocalDateTime getSunsetDateTime(OpenWeatherDTO openWeatherDTO){
-		return LocalDateTime.ofEpochSecond(sunset,0, ZoneOffset.ofTotalSeconds(openWeatherDTO.getTimezone()));
+		return LocalDateTime.ofEpochSecond(sunset,0, openWeatherDTO.getTimezoneZoneOffset());
 	}
 
 	public int getId(){

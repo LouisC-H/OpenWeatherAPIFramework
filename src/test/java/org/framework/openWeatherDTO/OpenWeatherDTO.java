@@ -1,5 +1,7 @@
 package org.framework.openWeatherDTO;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -66,6 +68,11 @@ public class OpenWeatherDTO{
 		return timezone;
 	}
 
+	public ZoneOffset getTimezoneZoneOffset(){
+		return ZoneOffset.ofTotalSeconds(timezone);
+	}
+
+
 	public Main getMain(){
 		OpenWeatherLogger.writeLog(Level.FINE, "Fetching data from Main DTO");
 		return main;
@@ -81,8 +88,12 @@ public class OpenWeatherDTO{
 		return sys;
 	}
 
-	public int getTimeDataCreated(){
+	public int getCalculatedTimeEpoch(){
 		return dt;
+	}
+
+	public LocalDateTime getCalculatedDateTime(){
+		return LocalDateTime.ofEpochSecond(dt,0, getTimezoneZoneOffset());
 	}
 
 	public Coord getCoord(){

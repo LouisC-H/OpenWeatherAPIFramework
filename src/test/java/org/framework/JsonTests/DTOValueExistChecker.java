@@ -38,7 +38,7 @@ public class DTOValueExistChecker {
     }
 
     public static boolean hasTime(OpenWeatherDTO openWeatherDTO) {
-        return String.valueOf(openWeatherDTO.getTimeDataCreated()).length() > 0;
+        return String.valueOf(openWeatherDTO.getCalculatedTimeEpoch()).length() > 0;
     }
 
     public static boolean hasClouds(OpenWeatherDTO openWeatherDTO) {
