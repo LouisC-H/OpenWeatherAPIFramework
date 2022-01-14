@@ -1,7 +1,6 @@
 package org.config;
 
 import org.logging.OpenWeatherLogger;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

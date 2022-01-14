@@ -2,7 +2,6 @@ package org.framework;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.framework.openWeatherDTO.OpenWeatherDTO;
-
 import java.io.IOException;
 import java.net.URL;
 

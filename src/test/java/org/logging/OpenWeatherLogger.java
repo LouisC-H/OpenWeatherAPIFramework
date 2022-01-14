@@ -32,8 +32,4 @@ public class OpenWeatherLogger {
         logger.log(level, message);
         }
     }
-
-    public static boolean doesLoggerExist() {
-        return loggerExists;
-    }
 }
