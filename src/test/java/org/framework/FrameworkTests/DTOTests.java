@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.logging.OpenWeatherLogger;
 
-import java.time.ZoneOffset;
+import java.util.logging.Level;
 
 public class DTOTests {
 
@@ -16,6 +17,7 @@ public class DTOTests {
 
     @BeforeAll
     static void setup(){
+        OpenWeatherLogger.createLogger(Level.WARNING);
         ConnectionManager.generateEndpointCityName("Vladivostok");
         openWeatherDTO = Injector.injectDTO(ConnectionManager.getURL());
     }

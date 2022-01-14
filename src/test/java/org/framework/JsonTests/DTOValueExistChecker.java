@@ -9,10 +9,6 @@ public class DTOValueExistChecker {
         return String.valueOf(openWeatherDTO.getCityId()).length() > 0;
     }
 
-    public static boolean hasCodValueCorrect(OpenWeatherDTO openWeatherDTO) {
-        return openWeatherDTO.getCod() > 0;
-    }
-
     public static boolean hasCityName(OpenWeatherDTO openWeatherDTO) {
         return openWeatherDTO.getName() != null;
     }

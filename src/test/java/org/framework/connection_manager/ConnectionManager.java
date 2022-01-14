@@ -14,9 +14,6 @@ public class ConnectionManager {
     private static String endPoint;
 
     public static HttpResponse<String> getResponse(){
-        if (!OpenWeatherLogger.doesLoggerExist()){
-            OpenWeatherLogger.createLogger();
-        }
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + endPoint)).build();
         OpenWeatherLogger.writeLog(Level.INFO, "URL created");
