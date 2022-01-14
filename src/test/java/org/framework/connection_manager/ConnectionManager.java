@@ -1,5 +1,8 @@
 package org.framework.connection_manager;
 
+
+import org.config.Config;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -7,8 +10,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConnectionManager {
-    private static final String BASEURL = "api.openweathermap.org/data/2.5/weather?";
-    private static final String APIKEY = ""; // grab from config file
+    private static final String BASEURL = "Https://api.openweathermap.org/data/2.5/weather?";
+    private static final String APIKEY = Config.getApiKey();// grab from config file
     private static String endPoint;
     private static String URL;
 
@@ -16,41 +19,13 @@ public class ConnectionManager {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + endPoint)).build();
         HttpResponse<String> httpResponse = null;
+
         try {
             httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
         return httpResponse;
-    }
-
-    public ConnectionManager(CallLocationByEnum callMethod, String val1, String val2){
-        switch (callMethod) {
-            case CITYNAME:
-                generateEndpointCityName(val1,val2);
-                break;
-            case GEOCOORD:
-                generateEndpointGeoCoord(val1,val2);
-                break;
-            case ZIPCODE:
-                generateEndpointZIPCode(val1,val2);
-                break;
-            default:
-                System.err.println("CONNECTION MANAGER: INVALID CALL BY METHOD!");
-        }
-    }
-
-    public ConnectionManager(CallLocationByEnum callMethod, String val1){
-        switch (callMethod) {
-            case CITYNAME:
-                generateEndpointCityName(val1);
-                break;
-            case CITYID:
-                generateEndpointCityID(val1);
-                break;
-            default:
-                System.err.println("CONNECTION MANAGER: INVALID CALL BY METHOD!");
-        }
     }
 
     public static int getStatusCode() {
@@ -81,21 +56,28 @@ public class ConnectionManager {
         endPoint = "q=" + cityName + "," + stateCode + "," + countryCode + "&appid=" + APIKEY;
     }
 
-    public static void generateEndpointCityID(String cityID) {
+    public static void generateEndpointCityID(int cityID) {
         endPoint = "id=" + cityID + "&appid=" + APIKEY;
 
     }
 
-    public static void generateEndpointGeoCoord(String latitude, String longitude) {
+    public static void generateEndpointGeoCoord(double latitude, double longitude) {
         endPoint = "lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKEY;
     }
 
-    public static void generateEndpointZIPCode(String zipCode, String countryCode) {
+    public static void generateEndpointZIPCode(int zipCode, String countryCode) {
         endPoint = "zip=" + zipCode + "," + countryCode + "&appid=" + APIKEY;
     }
 
-    public static void addModeParameter() {
-        endPoint = endPoint + "&mode=" + "";
+    public static void addModeParameter(ModeEnum mode) {
+        endPoint += "&mode=" + mode.getModeAsString();
+    }
+
+    public static void addUnitsParameter(UnitsEnum unit) {
+        endPoint += "&units=" + unit.getUnitCode();
+    }
+    public static void addLangParameter(LanguageEnum lang) {
+            endPoint += "&lang=" + lang.getLanguageCode();
     }
 
 }
