@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.text.DateFormat;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -62,7 +63,8 @@ public class HeadersTests {
     @Test
     @DisplayName("Test date has valid value")
     void testDateHasValidValue() {
-
+        String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("EEE, dd MMM yyyy"));
+        Assertions.assertTrue(Header.getDate().contains(formattedDate));
     }
     @Test
     @DisplayName("Test x-cache-key has valid value")
@@ -99,7 +101,8 @@ public class HeadersTests {
     @DisplayName("Test access-control-allow-origin has valid value")
     void testAccessControlAllowOriginHasValidValue() {
         Assertions.assertTrue(Header.getAccessControlAllowOrigin().equals("*") ||
-                Header.getAccessControlAllowOrigin().contains("http://"));
+                Header.getAccessControlAllowOrigin().contains("http://") ||
+                Header.getAccessControlAllowOrigin().contains("https://"));
     }
 
 
