@@ -88,7 +88,7 @@ public class OpenWeatherDTO{
 		return sys;
 	}
 
-	public int getCalculatedTimeEpoch(){
+	public int getTime(){
 		return dt;
 	}
 
