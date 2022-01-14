@@ -22,7 +22,7 @@ public class ConnectionManagerTests {
     @Test
     @DisplayName("Set City Name Test")
     void setCityNameTest(){
-        ConnectionManager.generateEndpointCityName("London");
+        ConnectionManager.setEndpointAsCityName("London");
         Assertions.assertEquals("Https://api.openweathermap.org/data/2.5/weather?q=London&appid=" + Config.getApiKey(), ConnectionManager.getURL());
         Assertions.assertEquals(200, ConnectionManager.getStatusCode());
     }
@@ -30,49 +30,56 @@ public class ConnectionManagerTests {
     @Test
     @DisplayName("Set Invalid City Name Test")
     void setInvalidCityNameTest(){
-        ConnectionManager.generateEndpointCityName("Disneyland");
+        ConnectionManager.setEndpointAsCityName("Disneyland");
+        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
+        System.out.println(ConnectionManager.getURL());
+        ConnectionManager.setEndpointAsCityName("Disneyland");
         Assertions.assertEquals(404, ConnectionManager.getStatusCode());
     }
 
     @Test
     @DisplayName("Set City Name W/ State Code Test")
     void setCityAndCodeTest(){
-        ConnectionManager.generateEndpointCityName("London", "uk");
+        ConnectionManager.setEndpointAsCityName("London", "uk");
         Assertions.assertEquals(200, ConnectionManager.getStatusCode());
     }
 
     @Test
     @DisplayName("Set Invalid State Code Test")
     void setInvalidStateCodeTest(){
-        ConnectionManager.generateEndpointCityName("London", "es");
+        ConnectionManager.setEndpointAsCityName("London", "es");
+        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
+        System.out.println(ConnectionManager.getURL());
+        ConnectionManager.setEndpointAsCityName("London", "es");
         Assertions.assertEquals(404, ConnectionManager.getStatusCode());
     }
 
     @Test
     @DisplayName("Set City Name W/ State and Country Code Test")
     void setCityStateAndCountryCodeTest(){
-        ConnectionManager.generateEndpointCityName("London", "uk","GB");
+        ConnectionManager.setEndpointAsCityName("London", "uk","GB");
         Assertions.assertEquals(200, ConnectionManager.getStatusCode());
     }
 
     @Test
     @DisplayName("Set City Name W/ State and Invalid Country Code Test")
     void setCityStateAndInvalidCountryCodeTest(){
-        ConnectionManager.generateEndpointCityName("London", "uk","DR");
-        Assertions.assertEquals(200, ConnectionManager.getStatusCode());
+        ConnectionManager.setEndpointAsCityName("London", "uk","DR");
+        Assertions.assertEquals(404, ConnectionManager.getStatusCode());
     }
 
     @Test
     @DisplayName("Set City ID Test")
     void setCityIdTest(){
-        ConnectionManager.generateEndpointCityID(2172797);
+        ConnectionManager.setEndpointAsCityID(2172797);
         Assertions.assertEquals(200, ConnectionManager.getStatusCode());
     }
 
     @Test
     @DisplayName("Set Invalid City ID Test")
     void setInvalidCityIdTest(){
-        ConnectionManager.generateEndpointCityID(4206969);
+        ConnectionManager.setEndpointAsCityID(4206969);
+        ConnectionManager.setEndpointAsCityID(4206969);
         Assertions.assertEquals(404, ConnectionManager.getStatusCode());
     }
 
@@ -81,7 +88,7 @@ public class ConnectionManagerTests {
     void setGeoCoordTest(){
         double lon = 139;
         double lat = 35;
-        ConnectionManager.generateEndpointGeoCoord(lat,lon);
+        ConnectionManager.setEndpointAsGeoCoord(lat,lon);
         Assertions.assertEquals(200, ConnectionManager.getStatusCode());
     }
 
@@ -90,21 +97,21 @@ public class ConnectionManagerTests {
     void setInvalidGeoCoordTest(){
         double lon = 9001;
         double lat = 182;
-        ConnectionManager.generateEndpointGeoCoord(lat,lon);
+        ConnectionManager.setEndpointAsGeoCoord(lat,lon);
         Assertions.assertEquals(400, ConnectionManager.getStatusCode());
     }
 
     @Test
     @DisplayName("Set Zip Code Test")
     void setZipCodeTest(){
-        ConnectionManager.generateEndpointZIPCode(94040,"us");
+        ConnectionManager.setEndpointAsZIPCode(94040,"us");
         Assertions.assertEquals(200, ConnectionManager.getStatusCode());
     }
 
     @Test
     @DisplayName("Set Invalid Zip Code Test")
     void setInvalidZipCodeTest(){
-        ConnectionManager.generateEndpointZIPCode(64209,"us");
+        ConnectionManager.setEndpointAsZIPCode(64209,"us");
         Assertions.assertEquals(404, ConnectionManager.getStatusCode());
     }
 
@@ -115,7 +122,7 @@ public class ConnectionManagerTests {
     void addModeParameterTest(){
         for(ModeEnum mode : ModeEnum.values())
         {
-            ConnectionManager.generateEndpointCityName("London");
+            ConnectionManager.setEndpointAsCityName("London");
             ConnectionManager.addModeParameter(mode);
             Assertions.assertEquals(200, ConnectionManager.getStatusCode());
         }
@@ -126,7 +133,7 @@ public class ConnectionManagerTests {
     void addUnitsParameterTest() {
         for (UnitsEnum unit : UnitsEnum.values())
         {
-            ConnectionManager.generateEndpointCityName("London");
+            ConnectionManager.setEndpointAsCityName("London");
             ConnectionManager.addUnitsParameter(unit);
             Assertions.assertEquals(200, ConnectionManager.getStatusCode());
         }
@@ -137,7 +144,7 @@ public class ConnectionManagerTests {
     void addLangParameterTest() {
         for (LanguageEnum lang : LanguageEnum.values())
         {
-            ConnectionManager.generateEndpointCityName("London");
+            ConnectionManager.setEndpointAsCityName("London");
             ConnectionManager.addLangParameter(lang);
             Assertions.assertEquals(200, ConnectionManager.getStatusCode());
         }

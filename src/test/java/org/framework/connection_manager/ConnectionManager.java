@@ -37,42 +37,38 @@ public class ConnectionManager {
         return BASEURL + endPoint;
     }
 
-    public static String getBaseURL() {
-        return BASEURL;
-    }
-
     public static void resetEndpoint(){
         endPoint = "";
         OpenWeatherLogger.writeLog(Level.INFO, "endpoint reseted");
     }
 
-    public static void generateEndpointCityName(String cityName) {
+    public static void setEndpointAsCityName(String cityName) {
         endPoint = "q=" + cityName + "&appid=" + APIKEY;
         OpenWeatherLogger.writeLog(Level.INFO, "city name endpoint generated");
     }
 
-    public static void generateEndpointCityName(String cityName, String countyOrStateCode) {
+    public static void setEndpointAsCityName(String cityName, String countyOrStateCode) {
         endPoint = "q=" + cityName + "," + countyOrStateCode + "&appid=" + APIKEY;
         OpenWeatherLogger.writeLog(Level.INFO, "city name endpoint generated");
     }
 
-    public static void generateEndpointCityName(String cityName, String stateCode, String countryCode) {
+    public static void setEndpointAsCityName(String cityName, String stateCode, String countryCode) {
         endPoint = "q=" + cityName + "," + stateCode + "," + countryCode + "&appid=" + APIKEY;
         OpenWeatherLogger.writeLog(Level.INFO, "city name endpoint generated");
     }
 
-    public static void generateEndpointCityID(int cityID) {
+    public static void setEndpointAsCityID(int cityID) {
         endPoint = "id=" + cityID + "&appid=" + APIKEY;
         OpenWeatherLogger.writeLog(Level.INFO, "city id endpoint generated");
 
     }
 
-    public static void generateEndpointGeoCoord(double latitude, double longitude) {
+    public static void setEndpointAsGeoCoord(double latitude, double longitude) {
         endPoint = "lat=" + latitude + "&lon=" + longitude + "&appid=" + APIKEY;
         OpenWeatherLogger.writeLog(Level.INFO, "geographic coordinates endpoint generated");
     }
 
-    public static void generateEndpointZIPCode(int zipCode, String countryCode) {
+    public static void setEndpointAsZIPCode(int zipCode, String countryCode) {
         endPoint = "zip=" + zipCode + "," + countryCode + "&appid=" + APIKEY;
         OpenWeatherLogger.writeLog(Level.INFO, "zip code endpoint generated");
     }
