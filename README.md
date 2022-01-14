@@ -66,6 +66,20 @@ Testers are able to get responses from the API (after endpoint construction) usi
 
 Our DTOs are based on a POJO object structure. One main class (OpenWeatherDTO) calls a number of smaller DTO classes to store the data retured from the API in the form of objects. This includes **Clouds, Coords, Main, Rain, Snow, Sys, WeatherIteam and Wind". After being populated by the Injector method Data can be retrieved from any of these using getters.
 
+#### Getting Header Info
+Testers are able to get each value from the header using the following methods
+    
+    Header.getFullHeader();
+    Header.getServer();
+    Header.getDate();
+    Header.getContentType();
+    Header.getContentLength();
+    Header.getConnection();
+    Header.getXCacheKey();
+    Header.getAccessControlAllowOrigin();
+    Header.getAccessControlAllowCredentials();
+    Header.getAccessControlAllowCredentials();
+    
 ## Contributors
 Hanif Ali<br>
 Louis Clement-Harris<br>
