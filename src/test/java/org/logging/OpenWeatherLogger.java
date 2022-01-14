@@ -9,9 +9,11 @@ import java.util.logging.Logger;
 
 public class OpenWeatherLogger {
     private static final String fileLocation = "src/test/java/org/resources/log_file.log";
+    private static boolean loggerExists = false;
 
     public static void createLogger(){
         Logger logger = Logger.getLogger("myLogger");
+        loggerExists = true;
         logger.setUseParentHandlers(false);
         try {
             Handler fileHandler = new FileHandler(fileLocation, true);
@@ -28,5 +30,9 @@ public class OpenWeatherLogger {
 
         logger.setLevel(level);
         logger.log(level, message);
+    }
+
+    public static boolean doesLoggerExist() {
+        return loggerExists;
     }
 }
