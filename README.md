@@ -64,6 +64,20 @@ Testers are able to get responses from the API (after endpoint construction) usi
 
 ### DTOs
 
+#### Getting Header Info
+Testers are able to get each value from the header using the following methods
+    
+    Header.getFullHeader();
+    Header.getServer();
+    Header.getDate();
+    Header.getContentType();
+    Header.getContentLength();
+    Header.getConnection();
+    Header.getXCacheKey();
+    Header.getAccessControlAllowOrigin();
+    Header.getAccessControlAllowCredentials();
+    Header.getAccessControlAllowCredentials();
+    
 ## Contributors
 Hanif Ali<br>
 Louis Clement-Harris<br>
